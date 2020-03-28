@@ -1,0 +1,36 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+    <category>
+        <pattern>hello</pattern>
+        <template>
+            <random>
+            <li> Norman: Well, hello! </li>
+            <li> Norman: Hello! </li>
+            <li> Norman: Hi! Nice to meet you! </li>
+            <li> Norman: Greetings! </li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>hi</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>greetings</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>what are you</pattern>
+        <template>
+            Norman: I'm Norman, silly!
+        </template>
+    </category>
+    
+</aiml>
