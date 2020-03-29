@@ -7,6 +7,7 @@
         <template>
             <learn>AIML_Files/greetings.aiml</learn>
             <learn>AIML_Files/subject.aiml</learn>
+            <learn>AIML_Files/prof.aiml</learn>
         </template>
         
     </category>

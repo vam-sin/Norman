@@ -8,11 +8,9 @@ mydb = mysql.connector.connect(
   database="mysql"
 )
 
-sql_select_Query = "select * from handouts"
+# None for prof and subject
+sql_select_Query = "select * from handouts order by rand()"
 cursor = mydb.cursor()
 cursor.execute(sql_select_Query)
 records = cursor.fetchall()
-print("Total number of rows in Laptop is: ", cursor.rowcount)
-
-for row in records:
-    print(row)
+print("Norman: Try " + records[0][0] + " offered by " + "Prof. " + records[0][1] + ".")

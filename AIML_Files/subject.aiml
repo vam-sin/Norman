@@ -1,4 +1,5 @@
 <aiml version = "1.0.1" encoding = "UTF-8">
+
     <category>
       <pattern>can you help me in choosing the elective course this semester</pattern>
       <template>
@@ -9,13 +10,22 @@
    
    <topic name = "DOMAIN">
       
-      <category>
+    <category>
+        <pattern>i like *</pattern>
+        <template>
+        Norman: Amazing! Can you let me know the name of the faculty you like?
+        <think><set name = "subject"><star/></set></think>
+        <think><set name = "topic">SYESPROF</set></think>
+        </template>
+    </category>
+
+    <category>
         <pattern>no i dont have any</pattern>
         <template>
         Norman: Why is that?
         <think><set name = "topic">NODOMAIN</set></think>
         </template>
-      </category>
+    </category>
       
    </topic>
 
@@ -49,6 +59,7 @@
         <pattern>yes</pattern>
         <template>
         Norman: Can you let me know the name of the faculty you like?
+        <think><set name = "subject">none</set></think>
         <think><set name = "topic">PROF</set></think>
         </template>
       </category>

@@ -1,28 +1,133 @@
-<aiml version="1.0.1" encoding="UTF-8">
+<aiml version = "1.0.1" encoding = "UTF-8">
+   
+   <topic name = "PROF">
+      <!-- Subject Pref: No -->
+      <category>
+        <pattern>no i dont have any</pattern>
+        <template> 
+        Norman: So you want me to give a suggestion for an elective assuming that you don't have any specific professor or subject preference?
+        <think><set name = "topic">NOSUBNOPROF</set></think>
+        <think><set name = "ppp">none</set></think>
+        </template>
+      </category>
 
-<!-- professor Parameter -->
-
-    <category>
+      <category>
         <pattern>i like * sir</pattern>
         <template>
-            Norman: Let me see what I can find for <set name="prof"><star/></set> sir.
+            Norman: Are you sure about the preferences you've mentioned?
+            <think><set name = "topic">ONLYPROF</set></think>
+            <star/>
+            <think><set name = "ppp"><star/></set></think>
         </template>
-    </category>
+      </category>
 
-    <category>
+      <category>
         <pattern>i like * maam</pattern>
         <template>
-            Norman: Let me see what I can find for <set name="prof"><star/></set> ma'am.
-        </template>
-    </category>
+            Norman: Are you sure about the preferences you've mentioned?
+            <think><set name = "topic">ONLYPROF</set></think>
+            <think><set name = "ppp"><star/></set></think>
 
-    <category>
-        <pattern>no particular professor</pattern>
+        </template>
+      </category>
+
+      <category>
+        <pattern>i like *</pattern>
         <template>
-            Norman: <set name="professor">no</set> particular professor? Alright then, let me see what I can do. 
+            Norman: Are you sure about the preferences you've mentioned?
+            <think><set name = "topic">ONLYPROF</set></think>
+            <think><set name = "ppp"><star/></set></think>
+            <star/>
         </template>
-    </category>
+      </category>
+      
+   </topic>
 
-<!-- End of professor Paramater -->
+   <topic name = "SYESPROF">
+      <!-- Subject Pref: Yes. -->
+      <category>
+        <pattern>no i dont have any</pattern>
+        <template> 
+        Norman: So you want me to give a suggestion for an elective assuming that you don't have any specific professor preference?
+        <!-- Suggest for Subject Pref: Yes, Prof Pref: No -->
+        <think><set name = "topic">ONLYSUB</set></think>
+        <think><set name = "ppp">none</set></think>
+        </template>
+      </category>
+
+      <category>
+        <pattern>i like * sir</pattern>
+        <template>
+            Norman: Are you sure about the preferences you've mentioned?
+            <think><set name = "topic">BOTH</set></think>
+            <think><set name = "ppp">lolmaxxaf</set></think>
+            <star/>
+        </template>
+      </category>
+
+      <category>
+        <pattern>i like * maam</pattern>
+        <template>
+            Norman: Are you sure about the preferences you've mentioned?
+            <think><set name = "topic">BOTH</set></think>
+            <think><set name = "ppp"><star/></set></think>
+        </template>
+      </category>
+
+      <category>
+        <pattern>i like *</pattern>
+        <template>
+            Norman: Are you sure about the preferences you've mentioned?
+            <think><set name = "topic">BOTH</set></think>
+            <think><set name = "ppp"><star/></set></think>
+            <star/>
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "BOTH">
+      
+      <category>
+        <pattern>yes</pattern>
+        <template> 
+        <!-- Suggest Accordingly for the pref -->
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "ONLYSUB">
+      
+      <category>
+        <pattern>yes</pattern>
+        <template> 
+        <!-- Suggest Accordingly for the pref -->
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "ONLYPROF">
+      
+      <category>
+        <pattern>yes</pattern>
+        <template> 
+        <!-- Suggest Accordingly for the pref -->
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "NOSUBNOPROF">
+      
+      <category>
+        <pattern>yes</pattern>
+        <template> 
+        <!-- Suggest Random -->
+        </template>
+      </category>
+      
+   </topic>
 
 </aiml>
