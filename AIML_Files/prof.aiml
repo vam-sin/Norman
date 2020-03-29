@@ -1,0 +1,28 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- professor Parameter -->
+
+    <category>
+        <pattern>i like * sir</pattern>
+        <template>
+            Norman: Let me see what I can find for <set name="prof"><star/></set> sir.
+        </template>
+    </category>
+
+    <category>
+        <pattern>i like * maam</pattern>
+        <template>
+            Norman: Let me see what I can find for <set name="prof"><star/></set> ma'am.
+        </template>
+    </category>
+
+    <category>
+        <pattern>no particular professor</pattern>
+        <template>
+            Norman: <set name="professor">no</set> particular professor? Alright then, let me see what I can do. 
+        </template>
+    </category>
+
+<!-- End of professor Paramater -->
+
+</aiml>

@@ -1,0 +1,59 @@
+<aiml version = "1.0.1" encoding = "UTF-8">
+    <category>
+      <pattern>can you help me in choosing the elective course this semester</pattern>
+      <template>
+        Norman: Sure. I can do that. Can you let me know the domain you are interested in? 
+        <think><set name = "topic">DOMAIN</set></think>
+      </template>  
+   </category>
+   
+   <topic name = "DOMAIN">
+      
+      <category>
+        <pattern>no i dont have any</pattern>
+        <template>
+        Norman: Why is that?
+        <think><set name = "topic">NODOMAIN</set></think>
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "NODOMAIN">
+      
+      <category>
+        <pattern>i am not sure</pattern>
+        <template>
+        Norman: Are you telling you are not interested in any domain?
+        <think><set name = "topic">NODOMAIN2</set></think>
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "NODOMAIN2">
+      
+      <category>
+        <pattern>yes</pattern>
+        <template>
+        Norman: But you wanted to choose an elective subject to study this semester?
+        <think><set name = "topic">NODOMAIN3</set></think>
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "NODOMAIN3">
+      
+      <category>
+        <pattern>yes</pattern>
+        <template>
+        Norman: Can you let me know the name of the faculty you like?
+        <think><set name = "topic">PROF</set></think>
+        </template>
+      </category>
+      
+   </topic>
+
+
+</aiml>

@@ -20,7 +20,28 @@
     </category>
 
     <category>
+        <pattern>howdy</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+
+    <category>
         <pattern>greetings</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>hi my name is *</pattern>
+        <template>
+            Norman: Hi <star/>, how are you?
+        </template>
+    </category>
+
+    <category>
+        <pattern>yo</pattern>
         <template>
             <srai>hello</srai>
         </template>
@@ -32,5 +53,40 @@
             Norman: I'm Norman, silly!
         </template>
     </category>
+
+    <category>
+        <pattern>i need help</pattern>
+        <template>
+            Norman: Of course! That's why I'm here.
+        </template>
+    </category>
     
+    <category>
+        <pattern>help me</pattern>
+        <template>
+            Norman: Of course! That's why I'm here.
+        </template>
+    </category>
+
+    <category>
+        <pattern>i need some help</pattern>
+        <template>
+            Norman: Of course! That's why I'm here.
+        </template>
+    </category>
+
+    <category>
+        <pattern>i am good</pattern>
+        <template>
+            Norman: Good to know that.
+        </template>
+    </category>
+
+    <category>
+        <pattern>i am fine</pattern>
+        <template>
+            Norman: Good to know that.
+        </template>
+    </category>
+
 </aiml>
