@@ -1,6 +1,10 @@
 import aiml
 import os
 
+# Tasks Left
+# Connect to the internet to get trends for subjects.
+# Make both subject and prof work
+
 def Punctuation(string): 
   
     # punctuation marks 
@@ -36,7 +40,7 @@ while True:
 	subject = kernel.getPredicate('subject')
 	prof = kernel.getPredicate('ppp') # ppp is the prof parameter (LOL)
 
-	print("Parameters: " + subject + " " + prof)
+	# print("Parameters: " + subject + " " + prof)
 
 	if subject == 'none' and prof == 'none': # Suggest random (Working)
 		os.system("python3 SQL/sql_snone_pnone.py")
@@ -45,6 +49,9 @@ while True:
 	elif subject != '' and prof == 'none': # Working
 		os.system("python3 SQL/sql_s_pnone.py " + subject)
 	elif subject != '' and prof != '': # Not working
-		pass
+		subject = subject.split()[0]
+		prof = prof.split()[0]
+		# print(subject, prof)
+		os.system("python3 SQL/sql_s_p.py " + subject + " " + prof)
 	else: 
 		print(kernel.respond(string))

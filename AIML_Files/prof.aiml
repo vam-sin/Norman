@@ -56,7 +56,7 @@
         <pattern>i like * sir</pattern>
         <template>
             Norman: Are you sure about the preferences you've mentioned?
-            <think><set name = "ppp">lolmaxxaf</set></think>
+            <think><set name = "ppp"><star/></set></think>
             <think><set name = "topic">BOTH</set></think>
         </template>
       </category>
