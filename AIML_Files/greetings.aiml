@@ -36,7 +36,21 @@
     <category>
         <pattern>hi my name is *</pattern>
         <template>
-            Norman: Hi <star/>, how are you?
+            Norman: Hi <set name = "username"><star/></set>, how are you?
+        </template>
+    </category>
+
+    <category>
+        <pattern>thank you</pattern>
+        <template>
+            Norman: It was a pleasure helping you <get name = "username"></get>!
+        </template>
+    </category>
+
+    <category>
+        <pattern>bye</pattern>
+        <template>
+            Norman: Bye <get name = "username"></get>!
         </template>
     </category>
 

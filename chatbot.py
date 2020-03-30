@@ -1,9 +1,25 @@
-import aiml
-import os
+import aiml, os, csv, sys
+from io import StringIO
+import subprocess
 
 # Tasks Left
 # Connect to the internet to get trends for subjects.
-# Make both subject and prof work
+# Store the conversations in flat file (Need Help)
+# Make both subject and prof work (Done)
+
+# class Logger(object):
+#     def __init__(self):
+#         self.terminal = sys.stdout
+#         self.log = open("conv.txt", "a")
+
+#     def write(self, message):
+#         self.terminal.write(message)
+#         self.log.write(message)  
+
+#     def flush(self):
+#         sys.stdout.flush()   
+
+# sys.stdout = Logger()
 
 def Punctuation(string): 
   
@@ -28,14 +44,22 @@ kernel.respond("load aiml b")
 subject = ''
 prof = ''
 
-print("\nNorman: Hi! My name is Norman!\n")
+# File
+# f = open('conv.txt','a') 
+# f.write("\n\n\n")
+
+user_msg = ''
+norman_msg = ''
+
+print("\nNorman: Hi! My name is Norman!")
 
 while True:
 	# Process the input. LowerCase it, remove punctuation.
 	string = input("User: ")
 	string = string.lower()
 	string = Punctuation(string)
-
+	# f.write("User: " + string)
+	# f.write("\n")
 	# Get parameters
 	subject = kernel.getPredicate('subject')
 	prof = kernel.getPredicate('ppp') # ppp is the prof parameter (LOL)
@@ -48,10 +72,15 @@ while True:
 		os.system("python3 SQL/sql_snone_p.py " + prof)
 	elif subject != '' and prof == 'none': # Working
 		os.system("python3 SQL/sql_s_pnone.py " + subject)
-	elif subject != '' and prof != '': # Not working
+	elif subject != '' and prof != '': # working
 		subject = subject.split()[0]
 		prof = prof.split()[0]
 		# print(subject, prof)
 		os.system("python3 SQL/sql_s_p.py " + subject + " " + prof)
 	else: 
 		print(kernel.respond(string))
+
+
+
+
+

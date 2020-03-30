@@ -1,0 +1,23 @@
+<CustomWidget>:
+    last_name_text_input: last_name
+    norman_response_text_input: norman_response
+    Label:
+        text: "Message:"
+        pos: 10,10
+        size: 100, 30
+    Label:
+        id: norman_response
+        text: "Norman: Hi! My name is Norman!"
+        pos: 300,50
+        size: 100, 30
+    TextInput:
+        id: last_name
+        pos: 100,10
+        size: 500, 30
+    Button:
+        text: "Send"
+        pos: 620,10
+        size: 100, 30
+        on_press: root.submit_message()
+        on_release: root.clear_text()
+        on_release: root.calculate_response()
