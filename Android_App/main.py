@@ -3,6 +3,8 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label 
 from kivy.properties import ObjectProperty, StringProperty
+from kivy.uix.boxlayout import BoxLayout 
+
 
 class CustomWidget(Widget):
     last_name_text_input = ObjectProperty()

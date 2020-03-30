@@ -3,23 +3,10 @@ from io import StringIO
 import subprocess
 
 # Tasks Left
+# Build android app
 # Connect to the internet to get trends for subjects.
 # Store the conversations in flat file (Need Help)
 # Make both subject and prof work (Done)
-
-# class Logger(object):
-#     def __init__(self):
-#         self.terminal = sys.stdout
-#         self.log = open("conv.txt", "a")
-
-#     def write(self, message):
-#         self.terminal.write(message)
-#         self.log.write(message)  
-
-#     def flush(self):
-#         sys.stdout.flush()   
-
-# sys.stdout = Logger()
 
 def Punctuation(string): 
   
@@ -48,8 +35,8 @@ prof = ''
 # f = open('conv.txt','a') 
 # f.write("\n\n\n")
 
-user_msg = ''
-norman_msg = ''
+# user_msg = ''
+# norman_msg = ''
 
 print("\nNorman: Hi! My name is Norman!")
 
