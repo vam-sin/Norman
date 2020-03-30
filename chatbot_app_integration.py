@@ -9,7 +9,7 @@ import os
 import csv
 import sys
 from io import StringIO
-
+import subprocess
 
 def Punctuation(string):
 
@@ -24,7 +24,6 @@ def Punctuation(string):
 
     # Print string without punctuation
     return string
-
 
 class CustomWidget(Widget):
     kernel = aiml.Kernel()
@@ -60,16 +59,28 @@ class CustomWidget(Widget):
 
         # Suggest random (Working)
         if subject == 'none' and prof == 'none':
-            os.system("python3 SQL/sql_snone_pnone.py")
+            process = subprocess.Popen(['python3', 'SQL/sql_snone_pnone.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+            self.norman_msg = out.decode("utf-8")
+            self.norman_response_text_input.text = self.norman_msg
         elif subject == 'none' and prof != '':  # Working
-            os.system("python3 SQL/sql_snone_p.py " + prof)
+            process = subprocess.Popen(['python3', 'SQL/sql_snone_p.py', prof], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+            self.norman_msg = out.decode("utf-8")
+            self.norman_response_text_input.text = self.norman_msg
         elif subject != '' and prof == 'none':  # Working
-            os.system("python3 SQL/sql_s_pnone.py " + subject)
+            process = subprocess.Popen(['python3', 'SQL/sql_s_pnone.py', subject], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+            self.norman_msg = out.decode("utf-8")
+            self.norman_response_text_input.text = self.norman_msg
         elif subject != '' and prof != '':  # working
             subject = subject.split()[0]
             prof = prof.split()[0]
             # print(subject, prof)
-            os.system("python3 SQL/sql_s_p.py " + subject + " " + prof)
+            process = subprocess.Popen(['python3', 'SQL/sql_s_pnone.py', subject, prof], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = process.communicate()
+            self.norman_msg = out.decode("utf-8")
+            self.norman_response_text_input.text = self.norman_msg
         else:
             self.norman_msg = self.kernel.respond(self.user_msg)
             self.norman_response_text_input.text = self.norman_msg
