@@ -5,9 +5,9 @@
         <pattern>LOAD AIML B</pattern>
 
         <template>
-            <learn>AIML_Files/greetings.aiml</learn>
-            <learn>AIML_Files/subject.aiml</learn>
-            <learn>AIML_Files/prof.aiml</learn>
+            <learn>greetings.aiml</learn>
+            <learn>subject.aiml</learn>
+            <learn>prof.aiml</learn>
         </template>
         
     </category>

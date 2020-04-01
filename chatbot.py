@@ -1,6 +1,15 @@
-import aiml, os, csv, sys
-from io import StringIO
-import subprocess
+import aiml
+from random import choice
+
+handouts = {
+ 'Deep Learning': 'N L Bhanu Murthy',
+ 'Reinforcement Learning': 'Paresh Saxena',
+ 'Artificial Intelligence': 'Jabez J Christopher',
+ 'Parallel Computing': 'Geethakumari',
+ 'Cloud Computing': 'Suvadip Batyabyal',
+ 'Information Retrieval': 'Aruna Malapati',
+ 'Machine Learning': 'Lov Kumar'
+}
 
 # Tasks Left
 # Build android app
@@ -43,7 +52,8 @@ print("\nNorman: Hi! My name is Norman!")
 while True:
 	# Process the input. LowerCase it, remove punctuation.
 	string = input("User: ")
-	string = string.lower()
+	# string = string.lower()
+	# print string
 	string = Punctuation(string)
 	# f.write("User: " + string)
 	# f.write("\n")
@@ -54,16 +64,61 @@ while True:
 	# print("Parameters: " + subject + " " + prof)
 
 	if subject == 'none' and prof == 'none': # Suggest random (Working)
-		os.system("python3 SQL/sql_snone_pnone.py")
+		sub, pro = choice(list(handouts.items()))
+		response = "Norman: Try " + str(sub) + " offered by " + "Prof. " + str(pro)
+		print(response)
 	elif subject == 'none' and prof != '': # Working
-		os.system("python3 SQL/sql_snone_p.py " + prof)
+		subs = []
+		profs = []
+		for k in handouts:
+			a = handouts[k].lower()
+			if prof in a:
+				profs.append(handouts[k])
+				subs.append(k)
+		if len(subs) == 0:
+			response = "Norman: I couldn't find any courses with that preferences."
+			print(response)
+		else:
+			response = "Norman: You could try the following courses: \n"
+			for i in range(len(subs)):
+				response += str(subs[i]) + " offered by " + "Prof. " + str(profs[i]) + ". \n"
+				print(response)
 	elif subject != '' and prof == 'none': # Working
-		os.system("python3 SQL/sql_s_pnone.py " + subject)
+		profs = []
+		subs = []
+		for k in handouts:
+			a = k.lower()
+			if subject in a:
+				profs.append(handouts[k])
+				subs.append(k)
+		if len(subs) == 0:
+			response = "Norman: I couldn't find any courses with that preferences."
+			print(response)
+		else:
+			response = "Norman: You could try the following courses: \n"
+			for i in range(len(subs)):
+				response += str(subs[i]) + " offered by " + "Prof. " + str(profs[i]) + ". \n"
+				print(response)
 	elif subject != '' and prof != '': # working
 		subject = subject.split()[0]
 		prof = prof.split()[0]
-		# print(subject, prof)
-		os.system("python3 SQL/sql_s_p.py " + subject + " " + prof)
+		profs = []
+		subs = []
+
+		for k in handouts:
+			a = k.lower()
+			b = handouts[k].lower()
+			if (subject in a) and (prof in b):
+				profs.append(handouts[k])
+				subs.append(k)
+		if len(subs) == 0:
+			response = "Norman: I couldn't find any courses with that preferences."
+			print(response)
+		else:
+			response = "Norman: You could try the following courses: \n"
+			for i in range(len(subs)):
+				response += str(subs[i]) + " offered by " + "Prof. " + str(profs[i]) + ". \n"
+				print(response)
 	else: 
 		print(kernel.respond(string))
 

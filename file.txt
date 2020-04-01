@@ -1,8 +1,0 @@
-Loading chatbot.xml...done (0.03 seconds)
-Loading AIML_Files/greetings.aiml...done (0.00 seconds)
-Loading AIML_Files/subject.aiml...done (0.00 seconds)
-Loading AIML_Files/prof.aiml...done (0.00 seconds)
-
-Norman: Hi! My name is Norman!
-
-User: 
