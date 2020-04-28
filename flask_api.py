@@ -3,6 +3,16 @@ from flask import Flask, jsonify, request
 from flask_restful import Resource, Api 
 import aiml
 from random import choice
+from datetime import datetime
+
+# datetime object containing current date and time
+
+# Tasks Left
+# Build android app. (Done)
+# Connect to the internet to get trends for subjects. (Done)
+# Store the conversations in flat file. (Done)
+# Make both subject and prof work. (Done)
+# Increase entries in db. (Last priority)
 
 # dataset
 handouts = {
@@ -51,13 +61,19 @@ class chatbot(Resource):
 		# Replace whitespaces with %20
 		user_msg = user_msg.lower()
 		user_msg = Punctuation(user_msg)
+		now = datetime.now()
+		timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
+		f = open("chats.txt", "a+")
+		f.write("Time: " + timestamp + ", " + "User: " + user_msg + "\n")
 		# Get parameters
+		trends = kernel.getPredicate('trends')
 		subject = kernel.getPredicate('subject')
 		prof = kernel.getPredicate('ppp') # ppp is the prof parameter (LOL)s
 
 		if subject == 'none' and prof == 'none': # Suggest random (Working)
 			sub, pro = choice(list(handouts.items()))
 			response = "Norman: Try " + str(sub) + " offered by " + "Prof. " + str(pro)
+			f.write("Time: " + timestamp + ", " + response + "\n")
 			return response
 		elif subject == 'none' and prof != '': # Working
 			subs = []
@@ -69,11 +85,13 @@ class chatbot(Resource):
 					subs.append(k)
 			if len(subs) == 0:
 				response = "Norman: I couldn't find any courses with that preferences."
+				ff.write("Time: " + timestamp + ", " + response + "\n")
 				return response
 			else:
 				response = "Norman: You could try the following courses: \n"
 				for i in range(len(subs)):
 					response += str(subs[i]) + " offered by " + "Prof. " + str(profs[i]) + ". \n"
+					f.write("Time: " + timestamp + ", " + response + "\n")
 					return response
 		elif subject != '' and prof == 'none': # Working
 			profs = []
@@ -85,11 +103,13 @@ class chatbot(Resource):
 					subs.append(k)
 			if len(subs) == 0:
 				response = "Norman: I couldn't find any courses with that preferences."
+				f.write("Time: " + timestamp + ", " + response + "\n")
 				return response
 			else:
 				response = "Norman: You could try the following courses: \n"
 				for i in range(len(subs)):
 					response += str(subs[i]) + " offered by " + "Prof. " + str(profs[i]) + ". \n"
+				f.write("Time: " + timestamp + ", " + response + "\n")
 				return response
 		elif subject != '' and prof != '': # working
 			subject = subject.split()[0]
@@ -105,14 +125,18 @@ class chatbot(Resource):
 					subs.append(k)
 			if len(subs) == 0:
 				response = "Norman: I couldn't find any courses with that preferences."
+				f.write("Time: " + timestamp + ", " + response + "\n")
 				return response
 			else:
 				response = "Norman: You could try the following courses: \n"
 				for i in range(len(subs)):
 					response += str(subs[i]) + " offered by " + "Prof. " + str(profs[i]) + ". \n"
+				f.write("Time: " + timestamp + ", " + response + "\n")
 				return response
 		else: 
-			return kernel.respond(user_msg)
+			response = kernel.respond(user_msg)
+			f.write("Time: " + timestamp + ", " + response + "\n")
+			return response
 
 # adding the defined resources along with their corresponding urls 
 api.add_resource(Hello, '/') 
@@ -127,4 +151,4 @@ if __name__ == '__main__':
 	kernel.respond("load aiml b")
 
 	# Run Flask app
-	app.run(host = '192.168.1.7', debug = True) 
+	app.run(host = '0.0.0.0', port = '5000', debug = True) 

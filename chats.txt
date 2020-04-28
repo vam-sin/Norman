@@ -1,0 +1,14 @@
+Time: 08/04/2020 00:21:40, User: hi
+Time: 08/04/2020 00:21:40, Norman: Greetings!
+Time: 08/04/2020 00:21:41, User: hi
+Time: 08/04/2020 00:21:41, Norman: Greetings!
+Time: 08/04/2020 00:21:41, User: hi
+Time: 08/04/2020 00:21:41, Norman: Hello!
+Time: 08/04/2020 00:21:42, User: hi
+Time: 08/04/2020 00:21:42, Norman: Hello!
+Time: 08/04/2020 00:21:42, User: hi
+Time: 08/04/2020 00:21:42, Norman: Hello!
+Time: 08/04/2020 00:21:43, User: hi
+Time: 08/04/2020 00:21:43, Norman: Well, hello!
+Time: 08/04/2020 00:23:54, User: hi
+Time: 08/04/2020 00:23:54, Norman: Well, hello!

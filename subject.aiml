@@ -26,10 +26,30 @@
         <think><set name = "topic">NODOMAIN</set></think>
         </template>
     </category>
+
+    <category>
+        <pattern>what are the current trends</pattern>
+        <template>
+        Norman: According to a trend analysis done in 2020, the following is a list of most coveted jobs in decreasing order of income:
+        1. Data Scientist.
+        2. IoT Solutions Architect.
+        3. Software Engineer.
+        4. Blockchain Engineer.
+        5. DevOps Engineer.
+        6. AI Architect.
+        7. Cloud Architect.
+        8. Data Warehouse Architect.
+        9. Full Stack Developer.
+        10. Product Manager.
+
+        Can you let me know the domain you are interested in? 
+        <think><set name = "topic">DOMAINTREND</set></think>
+        </template>
+    </category>
       
    </topic>
 
-   <topic name = "NODOMAIN">
+   <topic name = "DOMAINTREND">
       
       <category>
         <pattern>i am not sure</pattern>
@@ -38,6 +58,27 @@
         <think><set name = "topic">NODOMAIN2</set></think>
         </template>
       </category>
+
+      <category>
+        <pattern>i like *</pattern>
+        <template>
+        Norman: Amazing! Can you let me know the name of the faculty you like?
+        <think><set name = "subject"><star/></set></think>
+        <think><set name = "topic">SYESPROF</set></think>
+        </template>
+      </category>
+      
+   </topic>
+
+   <topic name = "NODOMAIN">
+      
+      <category>
+        <pattern>no i dont have any</pattern>
+        <template>
+        Norman: Why is that?
+        <think><set name = "topic">NODOMAIN</set></think>
+        </template>
+    </category>
       
    </topic>
 

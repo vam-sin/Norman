@@ -12,9 +12,9 @@ handouts = {
 }
 
 # Tasks Left
-# Build android app
+# Build android app (Done)
 # Connect to the internet to get trends for subjects.
-# Store the conversations in flat file (Need Help)
+# Store the conversations in flat file (7/4)
 # Make both subject and prof work (Done)
 
 def Punctuation(string): 

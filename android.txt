@@ -1,3 +1,0 @@
-title=<Norman>
-author=<Vamsi Nallapareddy>
-orientation=<portrait>
